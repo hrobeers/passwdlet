@@ -1,0 +1,10 @@
+This is a Fork of nicwolff's passwdlet.
+
+I added password.html, which is a modified copy of nicwolff's password page:
+http://angel.net/~nic/passwd.current.html
+(I couldn't find this page on github)
+
+As I understand, all code is released under the BSD license.
+
+IMPORTANT NOTE: passwd.current.html is currently not modified to produce the same output as password.html
+
