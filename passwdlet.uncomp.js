@@ -80,15 +80,27 @@ function binb2b64(binarray) {
 	return str;
 }
 function doIt() {
+	var host = document.location.href.match(/http(s*):\/\/([^/]+)/)[2];
+	var domain = '';
+	if (sld = host.match(/([^.]+\.([a-z][a-z][a-z]+|a(m|s|x)|bg|c(f|l|z)|d(e|j|k)|eu|fm|fo|gl|gm|hm|io|km|la|ly|m(d|e|n|p|q|r)|nc|nu|s(i|m|n|r|t|u|z)|td|tk|uz|vc|vu|ws))$/i)) {
+		domain = sld[0].split('.');
+	}
+	else {
+		domain = host.split('.');
+	}
+	
+	var count = domain.length;
+	
+	domain = domain[count-2];
+	
+	var appname = window.prompt('Application', domain);
+	
+	if (appname != null && appname != '') {
+		domain = appname;
+	}
+	
 	var master = window.prompt('Enter your master password');
-	if (master != '' && master != null) {
-		host = document.location.href.match(/http(s*):\/\/([^/]+)/)[2];
-		if (sld = host.match(/([^.]+\.([a-z][a-z][a-z]+|a(m|s|x)|bg|c(f|l|z)|d(e|j|k)|eu|fm|fo|gl|gm|hm|io|km|la|ly|m(d|e|n|p|q|r)|nc|nu|s(i|m|n|r|t|u|z)|td|tk|uz|vc|vu|ws))$/i)) {
-			domain = sld[0];
-		}
-		else {
-			domain = host.match(/([^.]+\.[^.]+\.[a-z][a-z])$/i)[0];
-		}
+	if (master != null && master != '') {
 		var i = 0,
 			j = 0,
 			p = b64_sha1(master + ':' + domain).substr(0, 10) + '3?k',
