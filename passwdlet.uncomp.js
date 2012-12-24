@@ -1,5 +1,5 @@
 var b64pad = '';
-var chrsz = 10;
+var chrsz = 8;
 function b64_sha1(s) {
 	return binb2b64(core_sha1(str2binb(s), s.length * chrsz));
 }
@@ -91,19 +91,25 @@ function doIt() {
 	
 	var count = domain.length;
 	
-	domain = domain[count-2];
+	var application = domain[count-2];
 	
-	var appname = window.prompt('Application', domain);
+	// if co.uk or ac.be or ... -> count-3
+	if (application.match(/(ac|co)/) != null){
+	  application = domain[count-3];
+	}
+	
+	
+	var appname = window.prompt('Application', application);
 	
 	if (appname != null && appname != '') {
-		domain = appname;
+		application = appname;
 	}
 	
 	var master = window.prompt('Enter your master password');
 	if (master != null && master != '') {
 		var i = 0,
 			j = 0,
-			p = b64_sha1(master + ':' + domain).substr(0, 10) + '3?k',
+			p = b64_sha1(master + ':' + application).substr(0, 10) + '3?k',
 			F = document.forms,
 			g = false;
 		for (i = 0; i < F.length; i++) {
@@ -125,7 +131,7 @@ function doIt() {
 			}
 		}
 		if (!g) {
-			window.prompt('Your password for ' + domain + ' is', p)
+			window.prompt('Your password for ' + application + ' is', p)
 		}
 	}
 }
