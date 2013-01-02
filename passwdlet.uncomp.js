@@ -135,5 +135,8 @@ function doIt() {
 		}
 	}
 }
-doIt();
-void(null);
+if (document.title != 'Password Generator')
+{
+	doIt();
+	void(null);
+}
