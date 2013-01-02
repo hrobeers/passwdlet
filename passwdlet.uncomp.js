@@ -138,7 +138,7 @@ function showPasswdlet() {
 		}
 	}
 }
-if (document.title != 'Password Generator')
+if (document.getElementById('hidepasswdlet') == null)
 {
 	showPasswdlet();
 	void(null);
