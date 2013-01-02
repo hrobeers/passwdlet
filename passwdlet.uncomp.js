@@ -79,7 +79,10 @@ function binb2b64(binarray) {
 	}
 	return str;
 }
-function doIt() {
+function generatePassword(master, application) {
+	return b64_sha1(master + ':' + application).substr(0, 10) + '3?k';
+}
+function showPasswdlet() {
 	var host = document.location.href.match(/http(s*):\/\/([^/]+)/)[2];
 	var domain = '';
 	if (sld = host.match(/([^.]+\.([a-z][a-z][a-z]+|a(m|s|x)|bg|c(f|l|z)|d(e|j|k)|eu|fm|fo|gl|gm|hm|io|km|la|ly|m(d|e|n|p|q|r)|nc|nu|s(i|m|n|r|t|u|z)|td|tk|uz|vc|vu|ws))$/i)) {
@@ -109,7 +112,7 @@ function doIt() {
 	if (master != null && master != '') {
 		var i = 0,
 			j = 0,
-			p = b64_sha1(master + ':' + application).substr(0, 10) + '3?k',
+			p = generatePassword(master, application),
 			F = document.forms,
 			g = false;
 		for (i = 0; i < F.length; i++) {
@@ -137,6 +140,6 @@ function doIt() {
 }
 if (document.title != 'Password Generator')
 {
-	doIt();
+	showPasswdlet();
 	void(null);
 }
