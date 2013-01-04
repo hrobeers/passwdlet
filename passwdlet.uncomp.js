@@ -97,28 +97,28 @@ function showPasswdlet() {
 	var application = domain[count-2];
 	
 	// if co.uk or ac.be or ... -> count-3
-	if (application.match(/(ac|co)/) != null){
-	  application = domain[count-3];
+	if (application.match(/(ac|co)/) !== null){
+        application = domain[count-3];
 	}
 	
 	
 	var appname = window.prompt('Application', application);
 	
-	if (appname != null && appname != '') {
+	if (appname !== null && appname !== '') {
 		application = appname;
 	}
 	
 	var master = window.prompt('Enter your master password');
-	if (master != null && master != '') {
+	if (master !== null && master !== '') {
 		var i = 0,
 			j = 0,
 			p = generatePassword(master, application),
 			F = document.forms,
 			g = false;
 		for (i = 0; i < F.length; i++) {
-			E = F[i].elements;
+			var E = F[i].elements;
 			for (j = 0; j < E.length; j++) {
-				D = E[j];
+				var D = E[j];
 				if (D.type == 'password') {
 					D.value = p;
 					D.focus();
@@ -138,7 +138,7 @@ function showPasswdlet() {
 		}
 	}
 }
-if (document.getElementById('hidepasswdlet') == null)
+if (document.getElementById('hidepasswdlet') === null)
 {
 	showPasswdlet();
 	void(null);
