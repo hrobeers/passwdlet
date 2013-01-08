@@ -7,8 +7,8 @@
 	</head>
 	<body>    
 		<h1>Password generator bookmarklet</h1>
-		<p><b>I hate passwords.</b> I mean, I don't mind making up and memorizing the really important ones but what about all those e-commerce and community sites that want me to create accounts? I used to end up using the same password at all of them and then I felt stupid knowing that one SQL Server exploit or disgruntled admin could cost me my whole identity.</p>
-		<p>So, I wrote a bookmarklet to make up passwords for me. It asks for my master password, which is all I have to remember, and uses it to make a unique password for each site. It even types the password into any password fields on the current page for me, whether I'm registering for a new account or logging in on a subsequent visit.</p>
+		<!--<p><b>I hate passwords.</b> I mean, I don't mind making up and memorizing the really important ones but what about all those e-commerce and community sites that want me to create accounts? I used to end up using the same password at all of them and then I felt stupid knowing that one SQL Server exploit or disgruntled admin could cost me my whole identity.</p>
+		<p>So, I wrote a bookmarklet to make up passwords for me. It asks for my master password, which is all I have to remember, and uses it to make a unique password for each site. It even types the password into any password fields on the current page for me, whether I'm registering for a new account or logging in on a subsequent visit.</p>-->
 		<p class="callout"><b>Here's the bookmarklet:</b>
 		<a id="bookmarklet" href="">Generate Password</a>.
         <p id="tofill"></p>
@@ -27,12 +27,13 @@
 		
 		<p><b>Other versions</b></p>
 
-		<p>It can be difficult to save a bookmarklet on a mobile device. <a href="javascript:window.location=window.location+'#'+document.getElementById('bookmarklet').href">If you click here</a> the bookmarklet will be appended to the current page URL, which you can then bookmark and edit to remove everything up to the "#".</p>
+		<p>It can be difficult to save a bookmarklet on a mobile device. <a id="mobile" href="">If you click here</a> the bookmarklet will be appended to the current page URL, which you can then bookmark and edit to remove everything up to the "#".</p>
 
-		<p>And <a href="password.html">here's</a> an HTML/Javascript form that will let you generate passwords for things besides the current site.</p>
+		<p>And <a href="index.html">here's</a> an HTML/Javascript form that will let you generate passwords for things besides the current site.</p>
 
+        <!--
 		<p>Billiam wrote a version as a <a href="http://www.chromeextensions.org/utilities/quick-password-generator/">a Google Chrome extension</a>.</p>
-        
+        -->
         
         <script src="packer/base2.js"></script>
         <script src="packer/Packer.js"></script>
@@ -52,7 +53,14 @@
                 document.getElementById("bookmarklet").href=packed; 
             }
             
+            function createForMobile()
+            {
+                var script = window.location=window.location + '#' + document.getElementById('bookmarklet').href;
+                document.getElementById("mobile").href=script;
+            }
+            
             createPasswdlet();
+            createForMobile();
         </script>
 	</body>
 </html>
