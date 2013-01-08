@@ -1,12 +1,24 @@
 This is a Fork of nicwolff's passwdlet.
 It is modified and generates different passwords than nicwolff's version.
 
-  I added password.html, which is a modified copy of nicwolff's password page:
-    http://angel.net/~nic/passwd.current.html
-    (I couldn't find this page on github)
+passwdlet.uncomp.js contains the uncompressed javascript code used for password generation.
 
-  passwdlet.uncomp.js contains the uncompressed javascript code used in passwdlet
-    You can use http://javascriptcompressor.com/ to compress the js code to one line
+The packer is used in passedlet.html to compress passwdlet.uncomp.js for use as bookmarklet.
 
-All code is released under the BSD license. The original passwdlet code is public domain.
 
+Installation
+============
+
+Copy all files and folders to a public folder on your webserver.
+
+
+LICENSE
+=======
+
+The packer is released under the MIT license.
+This code originates from javascripcompressor.com
+
+The original passwdlet code is public domain.
+https://github.com/nicwolff/passwdlet
+
+All other code is released under the 2-clause BSD license. 
