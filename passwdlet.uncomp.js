@@ -97,7 +97,7 @@ function showPasswdlet() {
 	var application = domain[count-2];
 	
 	// if co.uk or ac.be or ... -> count-3
-	if (application.match(/(ac|co)/) !== null){
+	if (application.match(/(^ac$|^co$)/) !== null){
         application = domain[count-3];
 	}
 	
