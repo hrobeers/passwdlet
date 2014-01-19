@@ -3,13 +3,19 @@ It is modified and generates different passwords than nicwolff's version.
 
 passwdlet.uncomp.js contains the uncompressed javascript code used for password generation.
 
-The packer is used in passedlet.html to compress passwdlet.uncomp.js for use as bookmarklet.
+The packer is used in passwdlet.html to compress passwdlet.uncomp.js for use as bookmarklet.
+
+This repo is served using github pages at: hrobeers.github.io/passwdlet
 
 
 Installation
 ============
 
 Copy all files and folders to a public folder on your webserver.
+
+OR
+
+Push all the files to a gh-pages branch of your forked branch on GitHub.
 
 
 LICENSE
